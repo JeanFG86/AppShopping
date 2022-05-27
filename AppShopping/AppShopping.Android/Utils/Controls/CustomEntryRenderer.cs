@@ -26,11 +26,11 @@ namespace AppShopping.Droid.Utils.Controls
         {
             base.OnElementChanged(e);
 
-            if(Control != null)
-            {
-                Control.Background = null;
-                Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
-            }
+            //if(Control != null)
+            //{
+            //    Control.Background = null;
+            //    Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            //}
         }
     }
 }
