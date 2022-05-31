@@ -2,6 +2,8 @@
 using AppShopping.Libraries.Helpers.mvvm;
 using AppShopping.Models;
 using AppShopping.Services;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -26,15 +28,24 @@ namespace AppShopping.ViewModels
         //public List<Establishment> Establishments { get; set; }
         public List<Establishment> _allEstablishment { get; set; }
 
+        public ICommand DetailCommand { get; set; }
+
         public StoresViewModel()
         {
             SearchCommand = new Command(Search);
+            DetailCommand = new Command<Establishment>(Detail);
 
             var allEstablishment = new EstablishmentService().GetEstablishment();
             var allStores = allEstablishment.Where(x => x.Type == EstablishmentType.Store).ToList();
 
             Establishments = allStores;
             _allEstablishment = allStores;
+        }
+
+        private void Detail(Establishment establishment)
+        {
+            String establishmentSerialized = JsonConvert.SerializeObject(establishment);
+            Shell.Current.GoToAsync($"establishment/detail?establishmentSerialized={Uri.EscapeDataString(establishmentSerialized)}");
         }
 
         private void Search()
