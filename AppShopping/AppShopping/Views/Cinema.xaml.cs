@@ -11,10 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace AppShopping.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EstablishmentDetail : ContentPage
+    public partial class Cinema : ContentPage
     {
-        public EstablishmentDetail()
+        public Cinema()
         {
+            BindingContext = new CinemaViewModel();
             InitializeComponent();
         }
     }
