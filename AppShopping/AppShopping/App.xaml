@@ -70,6 +70,12 @@
                 <Setter Property="TextColor" Value="{StaticResource Black}" />
             </Style>
 
+            <Style TargetType="Label" x:Key="SessionTitle">
+                <Setter Property="FontFamily" Value="MontserratRegular" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+            </Style>
+
             <Style TargetType="Button" x:Key="PrimaryButton">
                 <Setter Property="FontFamily" Value="MontserratRegular" />
                 <Setter Property="FontSize" Value="18" />
